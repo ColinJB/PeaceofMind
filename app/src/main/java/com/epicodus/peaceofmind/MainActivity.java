@@ -1,17 +1,20 @@
 package com.epicodus.peaceofmind;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText mLocationInputHome;
     private Button mLocationInputHomeButton;
+    private TextView mSloganHome;
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -21,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         mLocationInputHome = (EditText) findViewById(R.id.locationInputHome);
         mLocationInputHomeButton = (Button) findViewById(R.id.locationInputHomeButton);
+        mSloganHome = (TextView) findViewById(R.id.sloganHome);
+        Typeface defyingGravity = Typeface.createFromAsset(getAssets(), "fonts/kgdefyinggravity.ttf");
+        mSloganHome.setTypeface(defyingGravity);
 
         mLocationInputHomeButton.setOnClickListener(new View.OnClickListener(){
             @Override
