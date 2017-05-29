@@ -7,16 +7,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class LocationDetailsActivity extends AppCompatActivity {
     public static final String TAG = LocationDetailsActivity.class.getSimpleName();
-    private TextView mLocationInputFromIntent;
+    @Bind(R.id.locationInputFromIntent) TextView mLocationInputFromIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
-        mLocationInputFromIntent = (TextView) findViewById(R.id.locationInputFromIntent);
-
+        ButterKnife.bind(this);
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         mLocationInputFromIntent.setText(location);

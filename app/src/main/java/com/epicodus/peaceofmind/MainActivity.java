@@ -11,20 +11,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private EditText mLocationInputHome;
-    private Button mLocationInputHomeButton;
-    private TextView mSloganHome;
+    @Bind (R.id.locationInputHome) EditText mLocationInputHome;
+    @Bind (R.id.locationInputHomeButton) Button mLocationInputHomeButton;
+    @Bind(R.id.sloganHome) TextView mSloganHome;
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        mLocationInputHome = (EditText) findViewById(R.id.locationInputHome);
-        mLocationInputHomeButton = (Button) findViewById(R.id.locationInputHomeButton);
-        mSloganHome = (TextView) findViewById(R.id.sloganHome);
         Typeface defyingGravity = Typeface.createFromAsset(getAssets(), "fonts/kgdefyinggravity.ttf");
         mSloganHome.setTypeface(defyingGravity);
 
