@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,12 +19,17 @@
         <activity android:name=".LocationDetailsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.peaceofmind.MainActivity"></meta-data>
+                android:value="com.epicodus.peaceofmind.MainActivity" />
         </activity>
         <activity android:name=".AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.peaceofmind.MainActivity"></meta-data>
+                android:value="com.epicodus.peaceofmind.MainActivity" />
+        </activity>
+        <activity android:name=".ContactActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.peaceofmind.MainActivity" />
         </activity>
     </application>
 
