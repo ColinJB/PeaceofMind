@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind (R.id.locationInputHome) EditText mLocationInputHome;
     @Bind (R.id.locationInputHomeButton) Button mLocationInputHomeButton;
     @Bind(R.id.sloganHome) TextView mSloganHome;
+    @Bind(R.id.aboutLinkHome) TextView mAboutLinkHome;
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSloganHome.setTypeface(defyingGravity);
 
         mLocationInputHomeButton.setOnClickListener(this);
+        mAboutLinkHome.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String location = mLocationInputHome.getText().toString();
             Intent intent = new Intent(MainActivity.this, LocationDetailsActivity.class);
             intent.putExtra("location", location);
+            startActivity(intent);
+        } else if (v == mAboutLinkHome) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
         }
     }
