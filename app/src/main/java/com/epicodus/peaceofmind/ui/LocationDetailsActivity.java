@@ -23,6 +23,7 @@ public class LocationDetailsActivity extends AppCompatActivity {
     private String[] locations = new String[] {"Buckhead", "Bankhead",
             "Midtown", "Little Five Points", "Westside", "Cabbage Town",
             "Downtown", "Marietta", "Smyrna", "Bluffs"};
+    private String[] dangerLevels = new String[] {"Medium", "Very High", "Low", "Medium", "High", "Medium", "High", "High", "Low", "Very High"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class LocationDetailsActivity extends AppCompatActivity {
         String location = intent.getStringExtra("location");
         mLocationInputFromIntent.setText("Here are the most dangerous places in " + location);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, locations);
+        PeaceOfMindArrayAdapter adapter = new PeaceOfMindArrayAdapter(this, android.R.layout.simple_list_item_1, locations, dangerLevels);
         mMostDangerousListDetails.setAdapter(adapter);
 
         mMostDangerousListDetails.setOnItemClickListener(new AdapterView.OnItemClickListener() {

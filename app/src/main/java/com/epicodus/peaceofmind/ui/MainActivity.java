@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind (R.id.locationInputHomeButton) Button mLocationInputHomeButton;
     @Bind(R.id.sloganHome) TextView mSloganHome;
     @Bind(R.id.aboutLinkHome) TextView mAboutLinkHome;
+    @Bind(R.id.contactLinkHome) TextView mContactLinkHome;
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -32,17 +33,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mLocationInputHomeButton.setOnClickListener(this);
         mAboutLinkHome.setOnClickListener(this);
+        mContactLinkHome.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (v == mLocationInputHomeButton) {
-            String location = mLocationInputHome.getText().toString();
-            Intent intent = new Intent(MainActivity.this, LocationDetailsActivity.class);
-            intent.putExtra("location", location);
-            startActivity(intent);
+            if(mLocationInputHome.getText().toString().length() < 3) {
+                Toast.makeText(MainActivity.this, "Please enter a valid input.", Toast.LENGTH_LONG).show();
+            } else {
+                String location = mLocationInputHome.getText().toString();
+                Intent intent = new Intent(MainActivity.this, LocationDetailsActivity.class);
+                intent.putExtra("location", location);
+                startActivity(intent);
+            }
         } else if (v == mAboutLinkHome) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        } else if (v == mContactLinkHome) {
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
         }
     }
